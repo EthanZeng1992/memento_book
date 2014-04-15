@@ -1,0 +1,5 @@
+Tue, Apr 15, 2014
+-------------------------------------------------------------------
+- Added [Users] table, created [User] model.
+- Install Rspec, guard, factory_girl_rails plugins.
+- Install Authlogic plugin, modify [User] model to work with it.
