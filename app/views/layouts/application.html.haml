@@ -1,0 +1,25 @@
+!!!5
+%html
+  %head
+    %meta{ "http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
+    %title Memento Book 
+    = stylesheet_link_tag :application, media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag :application, 'data-turbolinks-track' => true
+    = csrf_meta_tag
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  %body
+    %nav{id: 'navbar', class: 'navbar navbar-inverse', role: 'navigation'} 
+      .container-fluid
+        .navbar-header
+          %a{class: 'navbar-brand', href: '/'} Memento Book 
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              %a{href: "#"} Link
+            %li
+              %a{href: "#"} Link
+
+    = render :partial => "layouts/header"
+    %p.flash-notice= flash[:notice]
+    #{yield}

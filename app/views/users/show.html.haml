@@ -1,0 +1,14 @@
+.form_style
+  .form-group
+    .col-md-2.col-sm-offset-4
+      %b Login:
+    .col-md-6
+      = @user.username
+  .form-group
+    .col-md-2.col-sm-offset-4
+      %b Email:
+    .col-md-6
+      = @user.email
+  .form-group
+    .col-md-2.col-sm-offset-4
+      = link_to 'Edit', edit_profile_path

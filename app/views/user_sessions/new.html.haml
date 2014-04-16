@@ -1,0 +1,17 @@
+.form_style
+  = form_for @user_session, html: {class: 'form-horizontal', role: 'form'} do |f|
+    .form-group
+      .col-sm-5.login_errors
+        = @user_session.errors.blank? ? "" : "Invalid username or password"
+    .form-group
+      = f.label :username, class: "col-sm-4 control-label"
+      .col-sm-4
+        = f.text_field :username, class: 'form-control'
+    .form-group
+      = f.label :password, class: "col-sm-4 control-label"
+      .col-sm-4
+        = f.password_field :password, class: 'form-control'
+    .form-group
+      .col-sm-offset-4.col-sm-4
+        = f.submit 'Login', class: 'btn btn-primary btn-lg btn-block'  
+        = link_to 'Create an account?', signup_path

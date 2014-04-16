@@ -18,6 +18,12 @@ end
 
 group :development do
   gem 'guard-rspec', '~> 4.2.8'
+
+  #--------------------------------------------------------------------------
+  gem 'better_errors'         # show errors perfectly
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  #--------------------------------------------------------------------------
 end
 
 group :test do
@@ -30,3 +36,5 @@ gem 'authlogic', '~> 3.4.1'
 gem 'bcrypt-ruby', "~> 3.0.0" #fix authlogic: cannot load such file -- bcrypt
 gem 'scrypt', '1.2.1'         #fix authlogic: cannot load such file -- scrypt
 #----------------------------------------------------------------------------
+
+gem "haml-rails"
