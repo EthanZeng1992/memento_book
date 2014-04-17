@@ -3,6 +3,7 @@ Tue, Apr 15, 2014
 - Added [Users] table, created [User] model.
 - Install Rspec, guard, factory_girl_rails plugins.
 - Install Authlogic plugin, modify [User] model to work with it.
+
 Tue, Apr 16, 2014
 -------------------------------------------------------------------
 - Install Better_errors plugin to show error perfectly
@@ -10,3 +11,6 @@ Tue, Apr 16, 2014
 - Added some styles use bootstrap
 - Implemented login, logout 
 
+Tue, Apr 17, 2014
+-------------------------------------------------------------------
+- Deploy App on Heroku
