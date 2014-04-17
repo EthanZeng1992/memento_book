@@ -1,7 +1,6 @@
 source 'http://ruby.taobao.org'
 
 gem 'rails', '4.1.0'
-gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -14,6 +13,7 @@ gem 'spring',        group: :development
 group :development, :test do
   gem "rspec", "~> 3.0.0.beta2"
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -38,3 +38,10 @@ gem 'scrypt', '1.2.1'         #fix authlogic: cannot load such file -- scrypt
 #----------------------------------------------------------------------------
 
 gem "haml-rails"
+
+# for heroku
+group :production do
+  gem 'rails_12factor', group: :production
+  gem 'pg'
+end
+ruby "2.1.1"
