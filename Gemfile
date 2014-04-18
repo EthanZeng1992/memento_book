@@ -13,7 +13,6 @@ gem 'spring',        group: :development
 group :development, :test do
   gem "rspec", "~> 3.0.0.beta2"
   gem 'rspec-rails', '~> 3.0.0.beta'
-  gem 'sqlite3'
 end
 
 group :development do
@@ -29,6 +28,7 @@ end
 group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 #----------------------------------------------------------------------------
@@ -42,6 +42,6 @@ gem "haml-rails"
 # for heroku
 group :production do
   gem 'rails_12factor', group: :production
-  gem 'pg'
 end
 ruby "2.1.1"
+gem 'pg'
