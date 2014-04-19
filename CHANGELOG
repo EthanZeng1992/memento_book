@@ -4,13 +4,23 @@ Tue, Apr 15, 2014
 - Install Rspec, guard, factory_girl_rails plugins.
 - Install Authlogic plugin, modify [User] model to work with it.
 
-Tue, Apr 16, 2014
+Wed, Apr 16, 2014
 -------------------------------------------------------------------
 - Install Better_errors plugin to show error perfectly
 - Install haml template engine  
 - Added some styles use bootstrap
 - Implemented login, logout 
 
-Tue, Apr 17, 2014
+Thu, Apr 17, 2014
 -------------------------------------------------------------------
 - Deploy App on Heroku
+
+Fri, Apr 18, 2014
+-------------------------------------------------------------------
+- Added UserController test
+
+Sat, Apr 19, 2014
+-------------------------------------------------------------------
+- Modify routes to not show id in url 
+- Add require_user for [Users] [:edit, :show, :update]  
+- Add require_no_user for [Users] [:new, :create]

@@ -9,7 +9,7 @@ describe "users/new" do
 
   it "renders the edit form" do
     render 
-    expect(rendered).to have_selector("form[action='/users']")
+    expect(rendered).to have_selector("form[action='#{create_user_path}']")
     expect(rendered).to have_selector("label[for='user_username']")
     expect(rendered).to have_selector("input[id='user_username']")
     expect(rendered).to have_selector("label[for='user_email']")

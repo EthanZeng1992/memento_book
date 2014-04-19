@@ -1,5 +1,5 @@
 .form_style
-  = form_for @user, html: {class: 'form-horizontal', role: 'form'} do |f|
+  = form_for @user, url: create_user_path, html: {class: 'form-horizontal', role: 'form'} do |f|
     .form-group
       .col-sm-5.sign_up_errors
         - if @user.errors.any?

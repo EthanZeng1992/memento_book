@@ -1,5 +1,5 @@
 .form_style
-  = form_for @user_session, html: {class: 'form-horizontal', role: 'form'} do |f|
+  = form_for @user_session, url: create_session_path, html: {class: 'form-horizontal', role: 'form'} do |f|
     .form-group
       .col-sm-5.login_errors
         = @user_session.errors.blank? ? "" : "Invalid username or password"

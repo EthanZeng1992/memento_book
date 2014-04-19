@@ -10,6 +10,14 @@ describe UsersController do
       expect(assigns[:user]).to eq(@user)
       expect(response).to render_template("users/new")
     end
+
+    it "if there exist current user, should redirect to profile path and flash 'You must logout'" do
+      login 
+
+      get :new
+      expect(response).to redirect_to(profile_path)
+      expect(flash[:notice]).to eq("You must logout!")
+    end
   end
 
   describe "responding to POST create" do
@@ -33,38 +41,58 @@ describe UsersController do
 
       expect(response).to render_template("users/new")
     end
+
+    it "if there exist current user, should redirect to profile path and flash 'You must logout'" do
+      login 
+
+      post :create, :user => { 
+        :username => "username",
+        :email    => "username@example.com",
+        :password => "password",
+        :password_confirmation => "password"}
+
+      expect(flash[:notice]).to eq("You must logout!")
+      expect(response).to redirect_to(profile_path)
+    end
   end
 
   describe "responding to Get show" do
-    before(:each) do
-      require_user
-    end
-
     it "should render [show] template" do
-      get :show, :id => current_user.id
+      require_user
+
+      get :show
       expect(assigns[:user]).to eq(current_user)
       expect(response).to render_template("users/show")
+    end
+
+    it "if there no current user exist, should redirect to login path and flash 'You must login'" do
+      get :show
+      expect(flash[:notice]).to eq("You must login!")
+      expect(response).to redirect_to(login_path)
     end
   end
 
   describe "responding to GET edit" do
     it "should expose current user as @user and render [edit] template" do
       require_user
-      @user = current_user
-      get :edit, :id => @user.id
+      get :edit
       expect(assigns[:user]).to eq(current_user)
       expect(response).to render_template("users/edit")
+    end
+
+    it "if there no current user exist, should redirect to login path and flash 'You must login'" do
+      get :edit
+      expect(flash[:notice]).to eq("You must login!")
+      expect(response).to redirect_to(login_path)
     end
   end
 
   describe "responding to PUT update" do
-    before(:each) do
+    it "with valid params, should update user information and flash notice success then redirect to profile path" do
       require_user
       @user = current_user
-    end
 
-    it "with valid params, should update user information and flash notice success then redirect to profile path" do
-      put :update, :id => @user.id, :user => {
+      put :update, :user => {
         :username => "golden",
         :email    => "golden@gmail.com"
       }
@@ -78,7 +106,10 @@ describe UsersController do
     end
 
     it "with invalid params, should not update the user information and redraw [edit] template" do
-      put :update, :id => @user.id, :user => {
+      require_user
+      @user = current_user
+
+      put :update, :user => {
         :username => "",
         :email    => "" 
       }
@@ -88,6 +119,16 @@ describe UsersController do
       expect(@user.email).to eq(current_user.email)
       expect(assigns[:user]).to eq(@user)
       expect(response).to render_template("users/edit")
+    end
+
+    it "if there no current user exist, should redirect to login path and flash 'You must login'" do
+      put :update, :user => {
+        :username => "golden",
+        :email    => "golden@gmail.com"
+      }
+
+      expect(flash[:notice]).to eq("You must login!")
+      expect(response).to redirect_to(login_path)
     end
   end
 end
