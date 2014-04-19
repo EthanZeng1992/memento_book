@@ -9,7 +9,7 @@ describe "user_sessions/new" do
 
   it "renders the login form with signup link" do
     render
-    expect(rendered).to have_selector("form[action='/user_sessions'][id='new_user_session']")
+    expect(rendered).to have_selector("form[action='#{create_session_path}'][id='new_user_session']")
     expect(rendered).to have_selector("label[for='user_session_username']")
     expect(rendered).to have_selector("input[id='user_session_username']")
     expect(rendered).to have_selector("label[for='user_session_password']")
