@@ -3,6 +3,10 @@ body {
   margin: 0;
 }
 
+#custom-body {
+  background: #e5e5e5;
+}
+
 #navbar {
   border-radius: 0;
 }
@@ -17,8 +21,14 @@ body {
   color: red;
 }
 
-.flash-notice {
-  width: 20%;
+#flash-style {
+  width: 50%;
   margin: 0 auto;
-  color: green;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-color: #e5e5e5;
+}
+
+.custom-nav {
+  background-color: #fff;
 }

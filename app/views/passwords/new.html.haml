@@ -1,0 +1,13 @@
+.form-style
+  .form-header
+    Reset your password
+  %p.form-text   
+    Fill out the form below and instructions to reset your password will be emailed to you !
+  = form_tag passwords_path, class: 'form-horizontal', role: 'form' do
+    .form-group
+      %label.col-sm-4.control-label Email:
+      .col-sm-5
+        = text_field_tag :email, nil, class: 'form-control'
+    .form-group
+      .col-sm-offset-4.col-sm-3
+        = submit_tag "Send email", class: 'btn btn-primary btn-lg btn-block'

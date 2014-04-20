@@ -8,18 +8,37 @@
     = csrf_meta_tag
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  %body
-    %nav{id: 'navbar', class: 'navbar navbar-inverse', role: 'navigation'} 
+  %body#custom-body
+    %nav{id: 'navbar', class: 'navbar custom-nav', role: 'navigation'} 
       .container-fluid
-        .navbar-header
-          %a{class: 'navbar-brand', href: '/'} Memento Book 
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
+            %li
+              %a{href: '/'} Memento Book 
+            %li
               %a{href: "#"} Link
             %li
               %a{href: "#"} Link
 
-    = render :partial => "layouts/header"
-    %p.flash-notice= flash[:notice]
+          %ul.nav.navbar-nav.navbar-right
+            -if current_user
+              %li.dropdown
+                %a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown"} 
+                  = current_user.username 
+                  %b.caret
+
+                %ul.dropdown-menu
+                  %li
+                    = link_to 'Profile', profile_path
+                  %li
+                    = link_to 'Setting', edit_profile_path
+                  %li
+                    = link_to 'Logout', logout_path, :method => :delete
+            -else
+              %li
+                = link_to 'Login', login_path
+              %li
+                = link_to 'Sign up', signup_path
+    .flash-style
+      = notice_message 
     #{yield}

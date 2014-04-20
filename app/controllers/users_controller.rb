@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:notice] = "Successful registration."
+      flash[:info] = "Successful registration."
       redirect_to profile_path 
     else
       render :new
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:notice] = "Your user profile has been updated."
+      flash[:info] = "Your user profile has been updated."
       redirect_to profile_path 
     else
       render :edit

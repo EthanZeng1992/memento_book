@@ -4,18 +4,21 @@ Rails.application.routes.draw do
   root   'home#index'
   get    'home'           => 'home#index'
 
-  #user_sessions routes do not show id
+  #user_sessions routes
   post   'create_session' => 'user_sessions#create'
   get    'login'          => 'user_sessions#new'
   delete 'logout'         => 'user_sessions#destroy'
 
-  #users routes do not show id
+  #users routes
   get    'signup'         => 'users#new'
   post   'create_user'    => 'users#create'
   get    'profile'        => 'users#show'
   get    'edit_profile'   => 'users#edit'
   put    'update_profile' => 'users#update'
   patch  'update_profile' => 'users#update'
+
+  #password routes
+  resources :passwords, :only => [:new, :create, :edit, :update] 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

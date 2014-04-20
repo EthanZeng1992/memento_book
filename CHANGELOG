@@ -24,3 +24,8 @@ Sat, Apr 19, 2014
 - Modify routes to not show id in url 
 - Add require_user for [Users] [:edit, :show, :update]  
 - Add require_no_user for [Users] [:new, :create]
+
+Sat, Apr 20, 2014
+-------------------------------------------------------------------
+- Modify [form] [error] [flash] style
+- Add reset password function using authlogic perishable token   

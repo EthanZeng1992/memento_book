@@ -1,19 +1,16 @@
-.form_style
+.form-style
+  .form-header
+    Setting profile
   = form_for @user, url: update_profile_path, html: {class: 'form-horizontal', role: 'form'} do |f|
-    .form-group
-      .col-sm-5.errors_style
-        - if @user.errors.any?
-          %ul
-            - @user.errors.full_messages.each do |msg|
-              %li= msg
+    = render 'shared/error_messages', :target => @user
     .form-group
       = f.label :username, class: "col-sm-4 control-label"
-      .col-sm-4
+      .col-sm-5
         = f.text_field :username, class: 'form-control'
     .form-group
       = f.label :email, class: "col-sm-4 control-label"
-      .col-sm-4
+      .col-sm-5
         = f.text_field :email, class: 'form-control'
     .form-group
-      .col-sm-offset-4.col-sm-4
+      .col-sm-offset-4.col-sm-3
         = f.submit 'Update', class: 'btn btn-primary btn-lg btn-block'  

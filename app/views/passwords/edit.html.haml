@@ -1,16 +1,8 @@
 .form-style
   .form-header
-    Sign up 
-  = form_for @user, url: create_user_path, html: {class: 'form-horizontal', role: 'form'} do |f|
+    Reset your password
+  = form_for @user, url: password_path(params[:id]), html:{ class: 'form-horizontal', role: 'form'}, :method => :put do |f|
     = render 'shared/error_messages', :target => @user
-    .form-group
-      = f.label :username, class: "col-sm-4 control-label"
-      .col-sm-5
-        = f.text_field :username, class: 'form-control'
-    .form-group
-      = f.label :email, class: "col-sm-4 control-label"
-      .col-sm-5
-        = f.text_field :email, class: 'form-control'
     .form-group
       = f.label :password, class: "col-sm-4 control-label"
       .col-sm-5
@@ -21,4 +13,4 @@
         = f.password_field :password_confirmation, class: 'form-control'
     .form-group
       .col-sm-offset-4.col-sm-3
-        = f.submit 'Sign up', class: 'btn btn-primary btn-lg btn-block'  
+        = f.submit 'Reset', class: 'btn btn-primary btn-lg btn-block'  
