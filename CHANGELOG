@@ -25,7 +25,12 @@ Sat, Apr 19, 2014
 - Add require_user for [Users] [:edit, :show, :update]  
 - Add require_no_user for [Users] [:new, :create]
 
-Sat, Apr 20, 2014
+Sun, Apr 20, 2014
 -------------------------------------------------------------------
 - Modify [form] [error] [flash] style
 - Add reset password function using authlogic perishable token   
+
+Mon, Apr 21, 2014
+-------------------------------------------------------------------
+- Add test for mailer 
+- Add redirect_back_or_default

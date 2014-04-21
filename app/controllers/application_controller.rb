@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   #-----------------------------------------------------------------------------
   def require_no_user
     if current_user
+      store_location
       flash_notice
       redirect_to profile_path
     end
@@ -29,6 +30,7 @@ class ApplicationController < ActionController::Base
   #-----------------------------------------------------------------------------
   def require_user
     unless current_user 
+      store_location
       flash[:warning] = "You must login !" 
       redirect_to login_path
     end
@@ -39,4 +41,16 @@ class ApplicationController < ActionController::Base
       flash[:warning] = "You must logout!" if params[:controller] == "users" 
       flash[:info] = "You have already logined!" if params[:controller] == "user_sessions"
   end
+
+  #-----------------------------------------------------------------------------
+  def store_location
+    session[:return_to] = request.url
+  end
+
+  #-----------------------------------------------------------------------------
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default) 
+    session[:return_to] = nil
+  end
+
 end

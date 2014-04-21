@@ -11,12 +11,12 @@ describe UsersController do
       expect(response).to render_template("users/new")
     end
 
-    it "if there exist current user, should redirect to profile path and flash 'You must logout'" do
+    it "if there exist current user, should redirect to profile path and flash 'You must logout',  when logout, it should redirect to signup path"do
       login 
 
       get :new
       expect(response).to redirect_to(profile_path)
-      expect(flash[:notice]).to eq("You must logout!")
+      expect(flash[:warning]).to eq("You must logout!")
     end
   end
 
@@ -28,7 +28,7 @@ describe UsersController do
         :password => "password",
         :password_confirmation => "password"}
 
-      expect(flash[:notice]).to eq("Successful registration.")
+      expect(flash[:info]).to eq("Successful registration.")
       expect(response).to redirect_to(profile_path)
     end
 
@@ -51,7 +51,7 @@ describe UsersController do
         :password => "password",
         :password_confirmation => "password"}
 
-      expect(flash[:notice]).to eq("You must logout!")
+      expect(flash[:warning]).to eq("You must logout!")
       expect(response).to redirect_to(profile_path)
     end
   end
@@ -67,7 +67,7 @@ describe UsersController do
 
     it "if there no current user exist, should redirect to login path and flash 'You must login'" do
       get :show
-      expect(flash[:notice]).to eq("You must login!")
+      expect(flash[:warning]).to eq("You must login !")
       expect(response).to redirect_to(login_path)
     end
   end
@@ -82,7 +82,7 @@ describe UsersController do
 
     it "if there no current user exist, should redirect to login path and flash 'You must login'" do
       get :edit
-      expect(flash[:notice]).to eq("You must login!")
+      expect(flash[:warning]).to eq("You must login !")
       expect(response).to redirect_to(login_path)
     end
   end
@@ -101,7 +101,7 @@ describe UsersController do
       expect(@user.username).to eq("golden")
       expect(@user.email).to eq("golden@gmail.com")
       expect(assigns[:user]).to eq(@user)
-      expect(flash[:notice]).to eq("Your user profile has been updated.")
+      expect(flash[:info]).to eq("Your profile has been updated.")
       expect(response).to redirect_to(profile_path)
     end
 
@@ -127,7 +127,7 @@ describe UsersController do
         :email    => "golden@gmail.com"
       }
 
-      expect(flash[:notice]).to eq("You must login!")
+      expect(flash[:warning]).to eq("You must login !")
       expect(response).to redirect_to(login_path)
     end
   end

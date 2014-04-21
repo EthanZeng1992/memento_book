@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:info] = "Successful registration."
-      redirect_to profile_path 
+      redirect_back_or_default profile_path
     else
       render :new
     end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:info] = "Your user profile has been updated."
+      flash[:info] = "Your profile has been updated."
       redirect_to profile_path 
     else
       render :edit

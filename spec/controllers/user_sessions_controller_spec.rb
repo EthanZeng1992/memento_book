@@ -12,7 +12,7 @@ describe UserSessionsController do
 
       get :new
       expect(response).to redirect_to(profile_path)
-      expect(flash[:notice]).to eq("You have already logined!")
+      expect(flash[:info]).to eq("You have already logined!")
     end
   end
 
@@ -23,8 +23,8 @@ describe UserSessionsController do
         :username => @user.username, 
         :password => @user.password}
 
-      expect(flash[:notice]).to eq("Login successfully!")
-      expect(response).to redirect_to(root_path)
+      expect(flash[:success]).to eq("Login successfully!")
+      expect(response).to redirect_to(profile_path)
     end
 
     it "with invalid params, shuld renders [new] template" do
@@ -41,7 +41,7 @@ describe UserSessionsController do
         :username => "username", 
         :password => "password"}
 
-      expect(flash[:notice]).to eq("You have already logined!")
+      expect(flash[:info]).to eq("You have already logined!")
       expect(response).to redirect_to(profile_path)
     end
   end
@@ -49,7 +49,7 @@ describe UserSessionsController do
   describe "responding to DELETE destroy" do
     it "if there is no current user, should redirect to login path and flash logout notice" do
       delete :destroy 
-      expect(flash[:notice]).to eq("You must login!")
+      expect(flash[:warning]).to eq("You must login !")
       expect(response).to redirect_to(login_path)
     end
   end
