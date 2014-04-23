@@ -3,7 +3,7 @@ require 'spec_helper'
 describe UsersController do
   describe "responding to GET new" do
     it "should expose a new user as @user and render [new] template" do
-      @user = FactoryGirl.build(:user)
+      @user = build(:user)
       expect(User).to receive(:new).and_return(@user)
 
       get :new

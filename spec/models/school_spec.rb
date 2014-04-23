@@ -3,7 +3,7 @@ require 'spec_helper'
 describe School do
 
   it "should create a new instance given a valid attributes" do
-    expect(FactoryGirl.build :school, :user => FactoryGirl.build(:user)).to be_valid
+    expect(build(:school, :user => build(:user))).to be_valid
   end
 
   describe "Association" do

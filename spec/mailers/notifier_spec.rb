@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Notifier do
   describe "password_reset_instructions" do
-    let(:user) { FactoryGirl.create(:user, :email => "forgot_my_password@example.com") }
+    let(:user) { create(:user, :email => "forgot_my_password@example.com") }
     let(:mail) { Notifier.password_reset_instructions(user) }
 
     before(:each) do

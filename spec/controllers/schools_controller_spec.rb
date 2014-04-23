@@ -5,7 +5,7 @@ describe SchoolsController do
     it "if there is current user, should expose a new school as @school and render [new] template" do
       require_user
 
-      @school = FactoryGirl.build(:school)
+      @school = build(:school)
       expect(School).to receive(:new).and_return(@school)
 
       get :new

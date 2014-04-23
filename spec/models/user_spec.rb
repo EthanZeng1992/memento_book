@@ -31,7 +31,7 @@ require 'spec_helper'
 describe User do
 
   it "should create a new instance given valid attributes" do
-    expect(FactoryGirl.build :user).to be_valid
+    expect(build(:user)).to be_valid
   end
 
   describe "Association" do

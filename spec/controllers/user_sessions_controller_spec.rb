@@ -18,7 +18,7 @@ describe UserSessionsController do
 
   describe "responding to POST create" do
     it "with valid params, should flash success and redirect to profile path" do
-      @user = FactoryGirl.create(:user)
+      @user = create(:user)
       post :create, :user_session => {
         :username => @user.username, 
         :password => @user.password}
