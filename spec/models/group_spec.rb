@@ -7,13 +7,13 @@ describe Group do
   end
 
   describe "Association" do
-    it { should belong_to(:school) }
+    it { is_expected.to belong_to(:school) }
   end
 
   describe "Validation" do
-    it { should validate_presence_of(:name) }
-    it { should validate_uniqueness_of(:name).scoped_to(:school_id) }
-    it { should validate_presence_of(:school_id) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_uniqueness_of(:name).scoped_to(:school_id) }
+    it { is_expected.to validate_presence_of(:school_id) }
   end
 
 end

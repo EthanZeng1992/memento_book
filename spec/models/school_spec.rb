@@ -7,13 +7,13 @@ describe School do
   end
 
   describe "Association" do
-    it { should belong_to(:user) }
-    it { should have_many(:groups) }
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:groups) }
   end
 
   describe "Validation" do
-    it { should validate_presence_of(:name) }
-    it { should validate_uniqueness_of(:name).scoped_to(:user_id) }
-    it { should validate_presence_of(:user_id) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_uniqueness_of(:name).scoped_to(:user_id) }
+    it { is_expected.to validate_presence_of(:user_id) }
   end
 end

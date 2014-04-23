@@ -35,11 +35,11 @@ describe User do
   end
 
   describe "Association" do
-    it { should have_many(:schools) }
+    it { is_expected.to have_many(:schools) }
   end
 
   describe "Validation" do
-    it { should validate_presence_of(:username) }
-    it { should validate_presence_of(:email) }
+    it { is_expected.to validate_presence_of(:username) }
+    it { is_expected.to validate_presence_of(:email) }
   end
 end
