@@ -29,13 +29,17 @@
 require 'spec_helper'
 
 describe User do
+
   it "should create a new instance given valid attributes" do
-    User.create!(
-      :username => "username",
-      :email    => "user@example.com",
-      :password => "password",
-      :password_confirmation => "password"
-    )
+    expect(FactoryGirl.build :user).to be_valid
+  end
+
+  describe "Association" do
+    it { should have_many(:schools) }
+  end
+
+  describe "Validation" do
+    it { should validate_presence_of(:username) }
+    it { should validate_presence_of(:email) }
   end
 end
-

@@ -4,13 +4,15 @@
 #-------------------------------------------------------------------------------
 FactoryGirl.define do
   factory :user do
-    username              { FactoryGirl.generate(:username) }
+    id                    { rand(10000) }
+    username              { FactoryGirl.generate(:name) }
     email                 { Faker::Internet.email }
-    #admin                 false
+    admin                 false
     password_hash         Authlogic::Random.hex_token
     password_salt         Authlogic::Random.hex_token
     persistence_token     Authlogic::Random.hex_token
     perishable_token      Authlogic::Random.friendly_token
+    remember_token        Authlogic::Random.friendly_token
     #single_access_token   Authlogic::Random.friendly_token
     last_request_at       { FactoryGirl.generate(:time) }
     current_login_at      { FactoryGirl.generate(:time) }

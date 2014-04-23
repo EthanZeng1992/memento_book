@@ -1,0 +1,12 @@
+.form-style
+  .form-header
+    New School
+  = form_for @school, html: {class: 'form-horizontal', role: 'form'}do |f| 
+    = render 'shared/error_messages', :target => @school
+    .form-group
+      = f.label :name, class: 'col-sm-4 control-label'
+      .col-sm-5
+        = f.text_field :name, class: 'form-control'
+    .form-group
+      .col-sm-offset-4.col-sm-3
+        = f.submit 'Create', class: 'btn btn-primary btn-lg btn-block'  

@@ -1,5 +1,7 @@
 source 'http://ruby.taobao.org'
 
+ruby "2.1.1"
+
 gem 'rails', '4.1.0'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -13,10 +15,14 @@ gem 'spring',        group: :development
 group :development, :test do
   gem "rspec", "~> 3.0.0.beta2"
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'sqlite3'
 end
 
 group :development do
   gem 'guard-rspec', '~> 4.2.8'
+
+  # for guard 
+  gem "rb-readline", "~> 0.5.0"
 
   #--------------------------------------------------------------------------
   gem 'better_errors'         # show errors perfectly
@@ -26,6 +32,7 @@ group :development do
 end
 
 group :test do
+  gem 'shoulda-matchers', :require => false
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'
@@ -41,7 +48,6 @@ gem "haml-rails"
 
 # for heroku
 group :production do
-  gem 'rails_12factor', group: :production
+  gem 'rails_12factor'
+  gem 'pg'
 end
-ruby "2.1.1"
-gem 'pg'

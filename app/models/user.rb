@@ -6,30 +6,34 @@
 #
 # Table name: users
 #
-#  id                  :integer         not null,    primary key
-#  username            :string(32)      default(""), not null
-#  email               :string(64)      default(""), not null
-#  password_hash       :string(255)     default(""), not null
-#  password_salt       :string(255)     default(""), not null
-#  persistence_token   :string(255)     default(""), not null
-#  perishable_token    :string(255)     default(""), not null
+#  id                  :integer
+#  username            :string
+#  email               :string
+#  password_hash       :string
+#  password_salt       :string
+#  persistence_token   :string
+#  perishable_token    :string
 #  last_request_at     :datetime
 #  last_login_at       :datetime
 #  current_login_at    :datetime
-#  last_login_ip       :string(255)
-#  current_login_ip    :string(255)
-#  login_count         :integer         default(0), not null
+#  last_login_ip       :string
+#  current_login_ip    :string
+#  login_count         :integer
 #  deleted_at          :datetime
 #  created_at          :datetime
 #  updated_at          :datetime
-#  admin               :boolean         default(FALSE), not null
+#  admin               :boolean
 #  suspended_at        :datetime
-#  single_access_token :string(255)
+#  single_access_token :string
 #
 
 class User < ActiveRecord::Base
 
   acts_as_authentic
+
+  has_many :schools
+
+  validates_presence_of :username, :email  
 
   #----------------------------------------------------------------------------
   def deliver_password_reset_instructions!

@@ -6,7 +6,7 @@ describe Notifier do
     let(:mail) { Notifier.password_reset_instructions(user) }
 
     before(:each) do
-      user.stub(:perishable_token).and_return("62fe5299b45513f9d22a2e1454f35dd43d62ba50")
+      expect(user).to receive(:perishable_token).and_return("62fe5299b45513f9d22a2e1454f35dd43d62ba50")
     end
 
     it "sets memento-book as the sender" do

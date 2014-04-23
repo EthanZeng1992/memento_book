@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  sequence :username do |n|
+  sequence :name do |n|
     Faker::Internet.user_name + n.to_s
   end
 
