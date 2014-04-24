@@ -1,21 +1,12 @@
-%h1 Listing schools
+.schools-sidebar
+  .label.label-primary#school-title Your Schools
+  .create-school= link_to 'Create School', new_school_path
+  %ul.school-list
+    - @schools.each do |school|
+      %li.school-item
+        = link_to school.name, school_path(school)
+        %ul.school-groups
+          - school.groups.each do |group|
+            %li.group-name
+              = group.name
 
-%table
-  %tr
-    %th Name
-    %th Deleted at
-    %th
-    %th
-    %th
-
-  - @schools.each do |school|
-    %tr
-      %td= school.name
-      %td= school.deleted_at
-      %td= link_to 'Show', school
-      %td= link_to 'Edit', edit_school_path(school)
-      %td= link_to 'Destroy', school, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New School', new_school_path

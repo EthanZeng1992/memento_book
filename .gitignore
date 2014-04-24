@@ -18,3 +18,6 @@ log/*.log
 tmp/**/*
 .DS_Store
 *~
+memento_book_development
+memento_book_test
+memento_book_production

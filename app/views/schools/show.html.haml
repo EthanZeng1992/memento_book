@@ -1,12 +1,11 @@
-%p#notice= notice
+.form-style
+  .form-header
+    = @school.name 
+    .edit-link
+      = link_to 'Edit', edit_school_path
+  %ul.profile-item
+    - @groups.each do |group|
+      %li
+        %strong= group.name
 
-%p
-  %b Name:
-  = @school.name
-%p
-  %b Deleted at:
-  = @school.deleted_at
-
-= link_to 'Edit', edit_school_path(@school)
-\|
-= link_to 'Back', schools_path
+  .new-group= link_to 'New Group', new_group_path

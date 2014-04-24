@@ -32,3 +32,37 @@ body {
 .custom-nav {
   background-color: #fff;
 }
+
+.nav-welcome {
+  padding: 15px 15px;  
+  color: rgb(117, 125, 128);
+}
+
+.nav-divider {
+  float: right;
+}
+
+#nav-profile {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nav-setting {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nav-logout {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nav-login {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nav-signup {
+  padding-left: 4px;
+  padding-right: 4px;
+}

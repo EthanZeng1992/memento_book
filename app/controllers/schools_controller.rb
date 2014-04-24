@@ -1,7 +1,7 @@
 class SchoolsController < ApplicationController
 
   before_action :set_school, only: [:show, :edit, :update, :destroy]
-  before_filter :require_user, :only => [:new]
+  before_filter :require_user, :only => [:new, :index]
 
   #---------------------------------------------------------------------------
   def new
@@ -9,23 +9,9 @@ class SchoolsController < ApplicationController
   end
 
   #---------------------------------------------------------------------------
-  def show
-  end
-
-  def index
-    @schools = School.all
-  end
-
-
-
-  # GET /schools/1/edit
-  def edit
-  end
-
-  # POST /schools
-  # POST /schools.json
   def create
     @school = School.new(school_params)
+    @school.user = current_user
 
     respond_to do |format|
       if @school.save
@@ -37,6 +23,23 @@ class SchoolsController < ApplicationController
       end
     end
   end
+
+  #---------------------------------------------------------------------------
+  def show
+    @school = School.find(params[:id])
+    @groups = @school.groups.all
+  end
+
+  def index
+    @schools = current_user.schools.all
+  end
+
+
+
+  # GET /schools/1/edit
+  def edit
+  end
+
 
   # PATCH/PUT /schools/1
   # PATCH/PUT /schools/1.json
@@ -70,6 +73,6 @@ class SchoolsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_params
-      params.require(:school).permit(:name, :deleted_at)
+      params.require(:school).permit(:name)
     end
 end

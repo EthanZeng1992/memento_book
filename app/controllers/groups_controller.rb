@@ -1,6 +1,11 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
+  #----------------------------------------------------------------------------
+  def new
+    @group = Group.new
+  end
+
   # GET /groups
   # GET /groups.json
   def index
@@ -12,10 +17,6 @@ class GroupsController < ApplicationController
   def show
   end
 
-  # GET /groups/new
-  def new
-    @group = Group.new
-  end
 
   # GET /groups/1/edit
   def edit
@@ -25,6 +26,8 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+    @school = School.find(params[:school_id])
+    @group.school = @school
 
     respond_to do |format|
       if @group.save
@@ -69,6 +72,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :deleted_at)
+      params.require(:group).permit(:name)
     end
 end

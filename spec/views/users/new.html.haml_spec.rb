@@ -7,7 +7,7 @@ describe "users/new" do
     assign(:user, User.new)
   end
 
-  it "renders the edit form" do
+  it "renders the new form" do
     render 
     expect(rendered).to have_selector("form[action='#{create_user_path}']")
     expect(rendered).to have_selector("label[for='user_username']")
