@@ -19,4 +19,6 @@ class School < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => :user_id
   validates_presence_of   :user_id
 
+  scope :ordered, -> { order(updated_at: :desc) }
+
 end

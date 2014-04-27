@@ -1,5 +1,5 @@
-= form_for @school, html: {class: 'form-inline', role: 'form'}  do |f| 
-  = render 'shared/error_messages', :target => @school
+= form_for @school, html: {class: 'form-inline', role: 'form'}, :remote => true do |f| 
+  = render 'shared/small_error_messages', :target => @school
   .form-group
     = f.text_field :name, class: 'form-control', placeholder: 'School name'
     = f.submit 'Create', class: 'btn btn-default'

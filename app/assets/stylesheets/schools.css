@@ -15,7 +15,7 @@
   border-radius: 5px;
 }
 
-.school-list {
+#school-list {
   padding: 0;
 }
 
@@ -50,4 +50,8 @@
 
 .schools-sidebar a:hover {
   text-decoration: none;
+}
+
+.field_with_errors {
+  display: inline;
 }

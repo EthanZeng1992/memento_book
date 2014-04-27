@@ -3,12 +3,9 @@
   .create-school
     = link_to_inline("Create school", send("new_school_path"), "create_school")
   .remote#create_school{ hidden }
-  %ul.school-list
-    - @schools.each do |school|
-      %li.school-item
-        = link_to school.name, school_path(school)
-      %ul.school-groups
-        - school.groups.each do |group|
-          %li.group-name
-            = link_to group.name, group_path(group)
+  %ul#school-list
+    - if @schools.any?
+      = render @schools
+    - else
+      = render 'shared/empty'
 

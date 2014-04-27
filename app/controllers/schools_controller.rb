@@ -19,7 +19,7 @@ class SchoolsController < ApplicationController
         format.js
       else
         format.html { render :new }
-        format.json { render json: @school.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -31,7 +31,7 @@ class SchoolsController < ApplicationController
   end
 
   def index
-    @schools = current_user.schools.all
+    @schools = current_user.schools.ordered
     @school = School.new
   end
 

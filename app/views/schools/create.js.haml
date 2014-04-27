@@ -1,1 +1,8 @@
-alert('Hello from AJAX');
+- @school = instance_variable_get("@school")
+
+- if @school.valid?
+  mb.hide_form('create_school')
+  $('#school-list').prepend('#{ j render(:partial => 'school', :collection => [ @school ]) }');
+
+- else
+  $('#create_school').html('#{ j render(:partial => "new") }');

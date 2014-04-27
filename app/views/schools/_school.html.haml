@@ -1,0 +1,6 @@
+%li.school-item
+  = link_to school.name, school_path(school)
+%ul.school-groups
+  - school.groups.each do |group|
+    %li.group-name
+      = link_to group.name, group_path(group)

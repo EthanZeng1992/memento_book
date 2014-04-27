@@ -1,0 +1,7 @@
+- if target.errors.any?
+  .alert.alert-error
+    %a.close{'data-dismiss' => 'alert', href: '#'}
+      x
+    %ul
+      = target.errors.full_messages.each do |msg|
+        %li= msg
