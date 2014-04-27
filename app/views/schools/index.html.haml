@@ -1,12 +1,14 @@
 .schools-sidebar
   .label.label-primary#school-title Your Schools
-  .create-school= link_to 'Create School', new_school_path
+  .create-school
+    = link_to_inline("Create school", send("new_school_path"), "create_school")
+  .remote#create_school{ hidden }
   %ul.school-list
     - @schools.each do |school|
       %li.school-item
         = link_to school.name, school_path(school)
-        %ul.school-groups
-          - school.groups.each do |group|
-            %li.group-name
-              = group.name
+      %ul.school-groups
+        - school.groups.each do |group|
+          %li.group-name
+            = link_to group.name, group_path(group)
 

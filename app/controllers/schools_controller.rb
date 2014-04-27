@@ -16,7 +16,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       if @school.save
         format.html { redirect_to @school, notice: 'School was successfully created.' }
-        format.json { render :show, status: :created, location: @school }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @school.errors, status: :unprocessable_entity }
@@ -32,6 +32,7 @@ class SchoolsController < ApplicationController
 
   def index
     @schools = current_user.schools.all
+    @school = School.new
   end
 
 

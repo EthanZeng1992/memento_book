@@ -27,6 +27,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    annotate (2.6.3)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
     authlogic (3.4.1)
       activerecord (>= 3.2)
@@ -231,6 +234,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate (>= 2.6.0)
   authlogic (~> 3.4.1)
   bcrypt-ruby (~> 3.0.0)
   better_errors

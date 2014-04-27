@@ -8,7 +8,12 @@
     = csrf_meta_tag
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
   %body#custom-body
+
+    = render :partial => "common/set_focus"
+
     %nav{id: 'navbar', class: 'navbar custom-nav', role: 'navigation'} 
       .container-fluid
         .collapse.navbar-collapse

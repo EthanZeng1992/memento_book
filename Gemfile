@@ -51,3 +51,6 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
 end
+
+# annotate models 
+gem 'annotate', ">=2.6.0"

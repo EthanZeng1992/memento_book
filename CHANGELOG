@@ -1,8 +1,40 @@
-Tue, Apr 15, 2014
+Sun, Apr 27, 2014
 -------------------------------------------------------------------
-- Added [Users] table, created [User] model.
-- Install Rspec, guard, factory_girl_rails plugins.
-- Install Authlogic plugin, modify [User] model to work with it.
+- Add scaffold [Member]
+- Add ajax for [new] school
+
+Thu, Apr 24, 2014
+-------------------------------------------------------------------
+- Add some style on schools
+- modify home page style
+
+Wed, Apr 23, 2014
+-------------------------------------------------------------------
+- Add model [School] [Group]
+
+Mon, Apr 21, 2014
+-------------------------------------------------------------------
+- Add test for mailer 
+- Add redirect_back_or_default
+
+Sun, Apr 20, 2014
+-------------------------------------------------------------------
+- Modify [form] [error] [flash] style
+- Add reset password function using authlogic perishable token   
+
+Sat, Apr 19, 2014
+-------------------------------------------------------------------
+- Modify routes to not show id in url 
+- Add require_user for [Users] [:edit, :show, :update]  
+- Add require_no_user for [Users] [:new, :create]
+
+Fri, Apr 18, 2014
+-------------------------------------------------------------------
+- Added UserController test
+
+Thu, Apr 17, 2014
+-------------------------------------------------------------------
+- Deploy App on Heroku
 
 Wed, Apr 16, 2014
 -------------------------------------------------------------------
@@ -11,35 +43,8 @@ Wed, Apr 16, 2014
 - Added some styles use bootstrap
 - Implemented login, logout 
 
-Thu, Apr 17, 2014
+Tue, Apr 15, 2014
 -------------------------------------------------------------------
-- Deploy App on Heroku
-
-Fri, Apr 18, 2014
--------------------------------------------------------------------
-- Added UserController test
-
-Sat, Apr 19, 2014
--------------------------------------------------------------------
-- Modify routes to not show id in url 
-- Add require_user for [Users] [:edit, :show, :update]  
-- Add require_no_user for [Users] [:new, :create]
-
-Sun, Apr 20, 2014
--------------------------------------------------------------------
-- Modify [form] [error] [flash] style
-- Add reset password function using authlogic perishable token   
-
-Mon, Apr 21, 2014
--------------------------------------------------------------------
-- Add test for mailer 
-- Add redirect_back_or_default
-
-Wed, Apr 23, 2014
--------------------------------------------------------------------
-- Add model [School] [Group]
-
-Thu, Apr 24, 2014
--------------------------------------------------------------------
-- Add some style on schools
-- modify home page style
+- Added [Users] table, created [User] model.
+- Install Rspec, guard, factory_girl_rails plugins.
+- Install Authlogic plugin, modify [User] model to work with it.

@@ -1,0 +1,7 @@
+:javascript
+  if ($$("form") != "") {
+    var first_element = $$("form")[0].findFirstElement();
+    if (first_element) {
+      first_element.focus();
+    }
+  }

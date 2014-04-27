@@ -1,0 +1,4 @@
+mb.flip_form('create_school');
+
+- unless params[:cancel] == 'true'
+  $('#create_school').html('#{ j render(:partial => "new") }' );

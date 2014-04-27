@@ -6,25 +6,25 @@
 #
 # Table name: users
 #
-#  id                  :integer
-#  username            :string
-#  email               :string
-#  password_hash       :string
-#  password_salt       :string
-#  persistence_token   :string
-#  perishable_token    :string
-#  last_request_at     :datetime
-#  last_login_at       :datetime
-#  current_login_at    :datetime
-#  last_login_ip       :string
-#  current_login_ip    :string
-#  login_count         :integer
-#  deleted_at          :datetime
-#  created_at          :datetime
-#  updated_at          :datetime
-#  admin               :boolean
-#  suspended_at        :datetime
-#  single_access_token :string
+#  id                :integer          not null, primary key
+#  username          :string(255)
+#  email             :string(255)
+#  admin             :boolean
+#  password_hash     :string(255)
+#  password_salt     :string(255)
+#  remember_token    :string(255)
+#  persistence_token :string(255)
+#  perishable_token  :string(255)
+#  openid_identifier :string(255)
+#  last_request_at   :datetime
+#  last_login_at     :datetime
+#  current_login_at  :datetime
+#  last_login_ip     :string(255)
+#  current_login_ip  :string(255)
+#  login_count       :integer
+#  deleted_at        :datetime
+#  created_at        :datetime
+#  updated_at        :datetime
 #
 
 class User < ActiveRecord::Base

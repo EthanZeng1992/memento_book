@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: schools
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  user_id    :integer
+#  deleted_at :datetime
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class School < ActiveRecord::Base
 
   belongs_to :user

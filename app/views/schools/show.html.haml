@@ -8,4 +8,4 @@
       %li
         %strong= group.name
 
-  .new-group= link_to 'New Group', new_group_path
+  .new-group= link_to 'New Group', new_group_path(session[:school_id] = @school.id)

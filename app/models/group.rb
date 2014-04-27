@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: groups
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  school_id  :integer
+#  deleted_at :datetime
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Group < ActiveRecord::Base
 
   belongs_to :school

@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-    @school = School.find(params[:school_id])
+    @school = School.find(session[:school_id])
     @group.school = @school
 
     respond_to do |format|

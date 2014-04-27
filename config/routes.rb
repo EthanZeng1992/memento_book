@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :members
+
   #root routes
   root   'home#index'
   get    'home'           => 'home#index'
