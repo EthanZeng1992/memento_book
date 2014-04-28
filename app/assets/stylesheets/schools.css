@@ -74,9 +74,9 @@
   padding-top: 10px;
 }
 
-.school-item {
-  list-style: none;
-  padding-bottom: 80px;
+.school-list-item {
+  padding-bottom: 200px;
+  padding-left: 25px;
 }
 
 .school-container {
@@ -88,8 +88,32 @@
 }
 
 .school-name {
-  padding-left: 15px;
+  padding-left: 10px;
   font-weight: bold;
   font-size: 16px;
   line-height: 1.25em;
+}
+
+.group-list-item {
+  float: left;
+  width: 25%;
+  list-style: none;
+  margin-top: 10px;
+  padding-left: 5px;
+}
+
+.group-name {
+  background: #23719F;
+  padding: 10px 63% 30% 10px;
+  border-radius: 5px;
+  color: #f6f6f6;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.group-name:hover {
+  color: #fff;  
+  text-decoration: none;
+  background-color: #196490;
 }

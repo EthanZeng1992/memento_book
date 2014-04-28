@@ -1,10 +1,17 @@
 .school-container
   .school-list
     - if @schools.any? 
-      %ul
-        - @schools.each do |school| 
-          %li.school-item
-            %i.fa.fa-users.fa-2x.custom-icon
-            %span.school-name= school.name
+      - @schools.each do |school| 
+        .school-list-item
+          %i.fa.fa-users.fa-2x.custom-icon
+          %span.school-name= school.name
+          .group-item
+            - if school.groups.any? 
+              %ul
+                - school.groups.each do |group|
+                  %li.group-list-item.group
+                    %a.group-name= group.name
+
+
     - else
       You have't create school yet!
