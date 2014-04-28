@@ -3,7 +3,7 @@
   position: absolute;
   top: 60px;
   right: 3%;
-  width: 25%;
+  width: 21%;
   background: #fff;
   padding: 10px;
   border: 1px solid #b9b9b9;
@@ -58,5 +58,38 @@
 }
 
 .add-button {
-  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+#group_school_id {
+  width: 100%;
+  padding: 3px 0px 3px 0px;
+}
+
+.label_school {
+  padding-top: 10px;
+}
+
+.school-item {
+  list-style: none;
+  padding-bottom: 80px;
+}
+
+.school-container {
+  margin-top: 50px;
+}
+
+.custom-icon {
+  color: rgb(141, 136, 136);
+}
+
+.school-name {
+  padding-left: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.25em;
 }

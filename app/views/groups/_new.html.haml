@@ -4,8 +4,10 @@
   Add Group 
   %a{href: '/add?cancel=true', 'data-remote' => true}
     %i.close-link.fa.fa-times.fa-close
-= form_for @group, html: {class: 'form-inline add-form', role: 'form'}, :remote => true do |f| 
+= form_for @group, html: {class: 'add-form', role: 'form'}, :remote => true do |f| 
   = render 'shared/small_error_messages', :target => @group
-  .form-group
-    = f.text_field :name, class: 'form-control', placeholder: 'Group name'
-    = f.submit 'Create', class: 'add-button btn btn-primary', id: 'add-school-submit'
+  = f.label :name
+  = f.text_field :name, class: 'form-control', placeholder: 'Group name'
+  = f.label :school, 'Assigned to', class: 'label_school'
+  = f.select :school_id, current_user.schools.all.collect { |s| [ s.name, s.id ] }
+  = f.submit 'Create', class: 'add-button btn btn-primary', id: 'add-school-submit'

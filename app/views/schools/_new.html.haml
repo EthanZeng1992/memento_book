@@ -4,8 +4,8 @@
   Add School
   %a{href: '/add?cancel=true', 'data-remote' => true}
     %i.close-link.fa.fa-times.fa-close
-= form_for @school, html: {class: 'form-inline add-form', role: 'form'}, :remote => true do |f| 
+= form_for @school, html: {class: 'add-form', role: 'form'}, :remote => true do |f| 
   = render 'shared/small_error_messages', :target => @school
-  .form-group
-    = f.text_field :name, class: 'form-control', placeholder: 'School name'
-    = f.submit 'Create', class: 'add-button btn btn-primary', id: 'add-school-submit'
+  = f.label :name
+  = f.text_field :name, class: 'form-control', placeholder: 'School name'
+  = f.submit 'Create', class: 'add-button btn btn-primary', id: 'add-school-submit'
