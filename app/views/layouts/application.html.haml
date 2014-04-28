@@ -7,6 +7,7 @@
     = javascript_include_tag :application, 'data-turbolinks-track' => true
     = csrf_meta_tag
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
@@ -30,6 +31,8 @@
                 welcome 
                 = current_user.username << ' !'
               %li
+                = link_to_inline("Add", send("add_path"), "add")
+              %li
                 = link_to 'Profile', profile_path, id: 'nav-profile'
               %li
                 = link_to 'Setting', edit_profile_path, id: 'nav-setting'
@@ -43,3 +46,8 @@
     .flash-style
       = notice_message 
     #{yield}
+
+    #add{ hidden }
+
+
+

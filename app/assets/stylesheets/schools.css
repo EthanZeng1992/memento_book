@@ -1,57 +1,62 @@
-#school-title {
-  padding: .3em .7em .4em;
-  font-size: 90%;
-}
-
-.create-school, .create-group {
-  float: right;
-}
-
-.schools-sidebar {
+#add {
+  z-index: 999;
+  position: absolute;
+  top: 60px;
+  right: 3%;
   width: 25%;
   background: #fff;
   padding: 10px;
-  margin-left: 20px;
-  border-radius: 5px;
+  border: 1px solid #b9b9b9;
 }
 
-#school-list {
-  padding: 0;
-}
-
-.school-item {
-  list-style: none;
-  padding-top: 25px;
-  color: #428bca;
+.add-title {
+  text-align: center;
+  border-bottom: 1px solid #dcdcdc;
   font-weight: bold;
-  border-bottom: 1px solid rgb(185, 181, 181);
+  color: #939393;
 }
 
-.edit-link {
+.fa-close {
   float: right;
-  font-weight: normal;
-  padding-right: 20px;
+  color: #939393;
 }
 
-.new-group {
-  padding-top: 20px;
+.add-school-title {
+  font-weight: bold; 
+  color: #428bca;
 }
 
-.group-name {
-  font-weight: normal;
+.add-item {
   padding-top: 10px;
 }
 
-#create_school {
-  margin-top: 20px;
-  padding: 15px;
-  border: 1px solid #F7ECEC;
-}
-
-.schools-sidebar a:hover {
+#link > a {
+  display: block;
   text-decoration: none;
 }
 
-.field_with_errors {
-  display: inline;
+.add-description {
+  color:#939393; 
+}
+
+.add-item > a:hover {
+  background-color: #F0F0F0;
+}
+
+.close-link:hover, #return:hover {
+  color: #707070; 
+}
+
+#return {
+ float: left;
+ color: #939393;
+ text-decoration: none;
+}
+
+.add-form {
+  padding-top: 10px;
+}
+
+.add-button {
+  margin-left: 20px;
 }

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   #root routes
   root   'home#index'
   get    'home'           => 'home#index'
+  get    'add'            => 'home#add'
+  get    'return'         => 'home#return'
 
   #user_sessions routes
   post   'create_session' => 'user_sessions#create'

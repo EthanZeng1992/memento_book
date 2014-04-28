@@ -1,11 +1,11 @@
-.schools-sidebar
-  .label.label-primary#school-title Your Schools
-  .create-school
-    = link_to_inline("Create school", send("new_school_path"), "create_school")
-  .remote#create_school{ hidden }
-  %ul#school-list
-    - if @schools.any?
-      = render @schools
+.school-container
+  .school-list
+    - if @schools.any? 
+      %ul
+        - @schools.each do |school| 
+          %li.school-item
+            %i.fa.fa-users.fa-2x.custom-icon
+            %span.school-name= school.name
+            %span.create-group-link= link_to_inline("Create group", send("new_group_path"), "create_group")
     - else
-      = render 'shared/empty'
-
+      You have't create school yet!
