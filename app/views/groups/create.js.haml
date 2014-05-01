@@ -1,7 +1,9 @@
-- @group = instance_variable_get("@group")
+- @group  = instance_variable_get("@group")
+- @school = instance_variable_get("@school")
 
 - if @group.valid?
-  mb.hide_form('add')
+  mb.hide_menu()
+  $('##{'school_' + @group.school.id.to_s}').prepend('#{ j render(:partial => 'group', :collection => [ @group ]) }');
 
 - else
   $('#add').html('#{ j render(:partial => "new") }');

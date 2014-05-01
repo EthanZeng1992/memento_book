@@ -1,0 +1,3 @@
+- if show_new_form?
+  $('#add').html('#{ j render(:partial => "new") }' );
+  $("form").find(":input[type=text]:first").focus()

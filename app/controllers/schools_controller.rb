@@ -1,7 +1,7 @@
 class SchoolsController < ApplicationController
 
-  before_action :set_school, only: [:show, :edit, :update, :destroy]
-  before_filter :require_user, :only => [:new, :index]
+  #before_action :set_school, only: [:show, :edit, :update, :destroy]
+  before_filter :require_user, :only => [:new, :create, :index]
 
   #---------------------------------------------------------------------------
   def new
@@ -15,25 +15,25 @@ class SchoolsController < ApplicationController
 
     respond_to do |format|
       if @school.save
-        format.html { redirect_to @school, notice: 'School was successfully created.' }
         format.js
       else
-        format.html { render :new }
         format.js
       end
     end
   end
 
   #---------------------------------------------------------------------------
+  def index
+    @schools = current_user.schools.ordered
+  end
+
+
+
   def show
     @school = School.find(params[:id])
     @groups = @school.groups.all
   end
 
-  def index
-    @schools = current_user.schools.ordered
-    @school = School.new
-  end
 
 
 
@@ -66,14 +66,14 @@ class SchoolsController < ApplicationController
     end
   end
 
+  #---------------------------------------------------------------------------
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school
-      @school = School.find(params[:id])
-    end
+  def set_school
+    @school = School.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def school_params
-      params.require(:school).permit(:name)
-    end
+  def school_params
+    params.require(:school).permit(:name)
+  end
+
 end

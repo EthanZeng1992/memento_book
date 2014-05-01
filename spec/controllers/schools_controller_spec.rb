@@ -2,17 +2,15 @@ require 'spec_helper'
 
 describe SchoolsController do
 
-  def mock_school(stubs = { :name => "Test School", :user => mock_model(User) })
-    @mock_school ||= mock_model(School, stubs)
-  end
-
   describe "responging to GET new" do
     it "if there is current user, should expose a new school as @school and render [new] template" do
       require_user
-      expect(School).to receive(:new).and_return(mock_school)
+      @school = create(:school, user_id: current_user.id)
 
-      get :new
-      expect(assigns[:school]).to eq(mock_school)
+      expect(School).to receive(:new).and_return(@school)
+
+      xhr :get, :new
+      expect(assigns[:school]).to eq(@school)
       expect(response).to render_template("schools/new")
     end
 
@@ -23,13 +21,33 @@ describe SchoolsController do
     end
   end
 
-  describe "responging to GET index" do
-    it "if there is current user, should expose all schools as @schools and render [show] template" do
+  describe "responging to POST create" do
+    it "if there is current user, should expose a newly school as @school" do
       require_user 
-      expect(School).to receive(:all).and_return(mock_school)
+      @school = create(:school, user_id: current_user.id)
+      expect(School).to receive(:new).and_return(@school)
+
+      xhr :post, :create, :school => { name: @school.name} 
+      expect(assigns[:school]).to eq(@school)
+      expect(response).to render_template("schools/create")
+    end
+
+    it "if there is no current user, should redirect to login path and flash 'You must login'" do
+      xhr :post, :create, :school => { name: 'example name'} 
+
+      expect(flash[:warning]).to eq("You must login !")
+      expect(response).to redirect_to(login_path)
+    end
+  end
+
+  describe "responging to GET index" do
+    it "if there is current user, should expose all schools as @schools and render [index] template" do
+      require_user 
+      school1 = create(:school, user_id: current_user.id)
+      school2 = create(:school, user_id: current_user.id)
 
       get :index
-      expect(assigns[:schools]).to eq(mock_school)
+      expect(assigns[:schools]).to eq([school2, school1])
       expect(response).to render_template("schools/index")
     end
 

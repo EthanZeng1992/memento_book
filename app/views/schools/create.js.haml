@@ -1,7 +1,8 @@
 - @school = instance_variable_get("@school")
 
 - if @school.valid?
-  mb.hide_form('add')
+  mb.hide_menu()
+  $('#school-list').prepend('#{ j render(:partial => 'school', :collection => [ @school ]) }');
 
 - else
   $('#add').html('#{ j render(:partial => "new") }');

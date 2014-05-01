@@ -5,30 +5,22 @@
     COLLAPSED: "&#9658;"
 
     #------------------------------------------------------------------------------
-    hide_form: (id) ->
-      arrow = $("#" + id + "_arrow")
+    hide_menu: ->
+      arrow = $("#add_arrow")
       arrow.html(@COLLAPSED)
-      $("#" + id).slideUp(
-        250
-        ->
-          $("#" +id).html("").css height: "auto"
-      )
+      $("#add").slideUp( 250 )
 
     #------------------------------------------------------------------------------
-    show_form: (id) ->
-      arrow = $("#" + id + "_arrow")
+    show_menu: ->
+      arrow = $("#add_arrow")
       arrow.html(@EXPANDED)
-      $("#" + id).slideDown(
-        250
-        ->
-          $("#" + id).find(":input[type=text]:first").focus()
-      )
+      $("#add").slideDown( 250 )
 
     #------------------------------------------------------------------------------
-    flip_form: (id) ->
-      if $("#" + id + ":visible").length
-        @hide_form id
+    flip_menu: ->
+      if $("#add:visible").length
+        @hide_menu() 
       else
-        @show_form id 
+        @show_menu()
 
 ) jQuery

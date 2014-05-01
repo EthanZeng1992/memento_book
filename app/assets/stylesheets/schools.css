@@ -26,11 +26,11 @@
   color: #428bca;
 }
 
-.add-item {
+#add-item {
   padding-top: 10px;
 }
 
-#link > a {
+#add-item > a {
   display: block;
   text-decoration: none;
 }
@@ -39,11 +39,11 @@
   color:#939393; 
 }
 
-.add-item > a:hover {
+#add-item > a:hover {
   background-color: #F0F0F0;
 }
 
-.close-link:hover, #return:hover {
+.fa-close:hover, #return:hover {
   color: #707070; 
 }
 
@@ -74,12 +74,12 @@
   padding-top: 10px;
 }
 
-.school-list-item {
-  padding-bottom: 200px;
+.school-item {
+  padding-bottom: 100px;
   padding-left: 25px;
 }
 
-.school-container {
+#school-list {
   margin-top: 50px;
 }
 
@@ -94,26 +94,33 @@
   line-height: 1.25em;
 }
 
-.group-list-item {
+.group-item {
   float: left;
-  width: 25%;
+  width: 23%;
   list-style: none;
   margin-top: 10px;
-  padding-left: 5px;
+  margin-right: 15px;
 }
 
 .group-name {
   background: #23719F;
-  padding: 10px 63% 30% 10px;
+  padding: 10px 0 30% 10px;
   border-radius: 5px;
   color: #f6f6f6;
   font-weight: bold;
   font-size: 16px;
   line-height: 22px;
+  display: block;
+  min-height: 115px;
 }
 
 .group-name:hover {
   color: #fff;  
   text-decoration: none;
   background-color: #196490;
+}
+
+.group-list { 
+  margin-top: 10px; 
+  overflow: hidden;
 }

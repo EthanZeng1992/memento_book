@@ -15,6 +15,6 @@ describe "layouts/application" do
     expect(rendered).to have_selector("a[href='#{profile_path}']")
     expect(rendered).to have_selector("a[href='#{edit_profile_path}']")
     expect(rendered).to have_selector("a[href='#{logout_path}']")
-    expect(rendered).to have_selector("a[href='#{schools_path}']")
+    expect(rendered).to have_selector("a[href='/add?cancel=false']")
   end
 end

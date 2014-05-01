@@ -1,9 +1,7 @@
-%a{href: '/return', 'data-remote' => true, id: 'return'}
-  &#9664; 
+= link_to_return
 .add-title
   Add School
-  %a{href: '/add?cancel=true', 'data-remote' => true}
-    %i.close-link.fa.fa-times.fa-close
+  = link_to_close
 = form_for @school, html: {class: 'add-form', role: 'form'}, :remote => true do |f| 
   = render 'shared/small_error_messages', :target => @school
   = f.label :name

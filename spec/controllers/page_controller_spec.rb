@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe HomeController do
+describe PageController do
 end

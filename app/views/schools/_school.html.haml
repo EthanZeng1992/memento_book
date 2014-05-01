@@ -1,6 +1,10 @@
-%li.school-item
-  = link_to school.name, school_path(school)
-%ul.school-groups
-  - school.groups.each do |group|
-    %li.group-name
-      = link_to group.name, group_path(group)
+- school_id = 'school_' + school.id.to_s
+- @groups   = school.groups.ordered
+
+.school-item
+  %i.fa.fa-users.fa-2x.custom-icon
+  = link_to school.name, "#", class: 'school-name'
+
+  %ul.group-list{id: school_id}
+    - if @groups.any? 
+      = render(partial: @groups ) 

@@ -14,40 +14,11 @@
   %body#custom-body
 
     = render :partial => "common/set_focus"
+    = render :partial => "layouts/navbar"
 
-    %nav{id: 'navbar', class: 'navbar custom-nav', role: 'navigation'} 
-      .container-fluid
-        .collapse.navbar-collapse
-          %ul.nav.navbar-nav
-            %li
-              %a{href: '/'} Memento Book 
-            %li
-              -if current_user
-                = link_to 'Schools', schools_path
-
-          %ul.nav.navbar-nav.navbar-right
-            -if current_user
-              %li.nav-welcome
-                welcome 
-                = current_user.username << ' !'
-              %li
-                = link_to_inline("Add", send("add_path"), "add")
-              %li
-                = link_to 'Profile', profile_path, id: 'nav-profile'
-              %li
-                = link_to 'Setting', edit_profile_path, id: 'nav-setting'
-              %li
-                = link_to 'Logout', logout_path, :method => :delete, id: 'nav-logout'
-            -else
-              %li
-                = link_to 'Login', login_path, id: 'nav-login'
-              %li
-                = link_to 'Sign up', signup_path, id: 'nav-signup'
     .flash-style
       = notice_message 
+
     #{yield}
 
     #add{ hidden }
-
-
-

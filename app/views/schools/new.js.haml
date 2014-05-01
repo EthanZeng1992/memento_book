@@ -1,4 +1,1 @@
--#mb.flip_form('add');
-
-- unless params[:cancel] == 'true'
-  $('#add').html('#{ j render(:partial => "new") }' );
+= render 'common/new_form'

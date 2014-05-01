@@ -1,9 +1,25 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+
+  #before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_filter :require_user, :only => [:new, :create]
 
   #----------------------------------------------------------------------------
   def new
     @group = Group.new
+  end
+
+  #----------------------------------------------------------------------------
+  def create
+    @group  = Group.new(group_params)
+    @school = @group.school
+
+    respond_to do |format|
+      if @group.save
+        format.js
+      else
+        format.js
+      end
+    end
   end
 
   # GET /groups
@@ -24,19 +40,6 @@ class GroupsController < ApplicationController
 
   # POST /groups
   # POST /groups.json
-  def create
-    @group = Group.new(group_params)
-
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.js
-      else
-        format.html { render :new }
-        format.js
-      end
-    end
-  end
 
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
@@ -62,14 +65,15 @@ class GroupsController < ApplicationController
     end
   end
 
+  #----------------------------------------------------------------------------
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    end
+  def set_group
+    @group = Group.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def group_params
-      params.require(:group).permit(:name, :school_id)
-    end
+  #----------------------------------------------------------------------------
+  def group_params
+    params.require(:group).permit(:name, :school_id)
+  end
+
 end

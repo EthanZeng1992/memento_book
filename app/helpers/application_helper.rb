@@ -13,20 +13,6 @@ module ApplicationHelper
   end
 
   #--------------------------------------------------------------------------------------------
-  def link_to_inline(text, url, id)
-    text = arrow_for(id) + text
-    url = url + "?cancel=false"
-    link_to(text, url,
-           :remote => true,
-           :onclick => "this.href = this.href.replace(/cancel=(true|false)/,'cancel='+ ($('##{id}').css('display') != 'none'));")
-  end
-    
-  #--------------------------------------------------------------------------------------------
-  def arrow_for(id)
-    content_tag(:span, "&#9658;".html_safe, :id => "#{id}_arrow", :class => :arrow)
-  end
-
-  #--------------------------------------------------------------------------------------------
   def hidden; { :style => "display:none;" }; end
 
 end

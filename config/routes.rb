@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   resources :members
 
   #root routes
-  root   'home#index'
-  get    'home'           => 'home#index'
-  get    'add'            => 'home#add'
-  get    'return'         => 'home#return'
+  root   'page#index'
+  get    'home'           => 'page#index'
+  get    'add'            => 'page#add'
+  get    'return'         => 'page#return'
 
   #user_sessions routes
   post   'create_session' => 'user_sessions#create'
