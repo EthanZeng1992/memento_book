@@ -1,0 +1,6 @@
+.add-member-form
+  .add-member Add member through email
+  = form_tag members_path, role: 'form' do
+    = text_field_tag :email, nil, class: 'form-control', placeholder: 'Email...'
+    = submit_tag 'Send', class: 'btn btn-primary member-submit'
+

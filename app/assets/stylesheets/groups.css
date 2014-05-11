@@ -1,0 +1,57 @@
+.member-container {
+  margin: 0 10px;
+}
+
+.member-list {
+  float: left;
+  width: 20%;
+  max-height: 550px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.member-title {
+  padding: 5px;
+  color: #428bca;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#create-member {
+  float: right;
+}
+
+#create-member > a:hover {
+  text-decoration: none;
+}
+
+.member-show {
+  width: 79%;
+  float: left;
+  margin-left: 10px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.add-member {
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: #939393;
+}
+
+.add-member-form {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #E0DBDB;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.member-submit {
+  margin-top: 10px;
+}
+
+.search {
+  margin-top: 10px;
+}

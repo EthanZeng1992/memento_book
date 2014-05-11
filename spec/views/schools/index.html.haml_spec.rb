@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "schools/index" do
-  it 'should render school name and groups name if school.any?' do
+  it 'should render school name and groups name if schools.any?' do
     current_user = create(:user)
 
     group1 = stub_model(Group, :name => "group-1")

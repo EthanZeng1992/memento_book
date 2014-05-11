@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :members
 
   #root routes
   root   'page#index'
@@ -26,6 +25,10 @@ Rails.application.routes.draw do
 
   resources :groups
   resources :schools
+
+  #members
+  resources :members
+  get 'add_member' => 'members#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

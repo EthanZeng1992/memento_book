@@ -1,0 +1,7 @@
+.member-container
+  .member-list
+    %span.member-title Members
+    %span#create-member= add_member 
+    #add_member{ hidden }
+    .search= text_field_tag('query', nil, {class: 'form-control', placeholder: 'Search...'}) 
+  .member-show

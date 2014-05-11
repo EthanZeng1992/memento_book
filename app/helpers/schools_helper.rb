@@ -15,6 +15,11 @@ module SchoolsHelper
   end
 
   #--------------------------------------------------------------------------------------------
+  def arrow_for_member
+    content_tag(:span, "&#9658;".html_safe, :id => "arrow_for_member")
+  end
+
+  #--------------------------------------------------------------------------------------------
   def link_to_close
     text = raw('<i class="fa fa-times fa-close"></i>')
     url  = '/add?cancel=true'
@@ -40,8 +45,7 @@ module SchoolsHelper
     text = raw('<div class="add-school-title">New Group...</div>
                 <div class="add-description">A group is a collection of your classmates or friends, use it to collect them together.</div>') if entity == 'groups' 
 
-    url = "#{entity}" + "/new?cancel=false"
+    url = root_path + "#{entity}/new?cancel=false"
     link_to(text, url, remote: true)
   end
-
 end

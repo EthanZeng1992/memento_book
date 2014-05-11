@@ -7,10 +7,9 @@ describe "schools/new" do
   end
 
   it "renders the new form" do
-    render
+    render partial: 'schools/new'
+    expect(rendered).to have_selector("a[id='return']")
+    expect(rendered).to have_selector("i[class='fa fa-times fa-close']")
     expect(rendered).to have_selector("form[action='#{schools_path}']")
-    expect(rendered).to have_selector("label[for='school_name']")
-    expect(rendered).to have_selector("input[id='school_name']")
-    expect(rendered).to have_selector("input[name='commit']")
   end
 end

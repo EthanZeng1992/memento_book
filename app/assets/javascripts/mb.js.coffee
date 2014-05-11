@@ -23,4 +23,23 @@
       else
         @show_menu()
 
+    #------------------------------------------------------------------------------
+    hide_add_member: ->
+      arrow = $("#arrow_for_member")
+      arrow.html(@COLLAPSED)
+      $("#add_member").slideUp( 250 )
+
+    #------------------------------------------------------------------------------
+    show_add_member: ->
+      arrow = $("#arrow_for_member")
+      arrow.html(@EXPANDED)
+      $("#add_member").slideDown( 250 )
+
+    #------------------------------------------------------------------------------
+    flip_add_member: ->
+      if $("#add_member:visible").length
+        @hide_add_member() 
+      else
+        @show_add_member()
+
 ) jQuery
